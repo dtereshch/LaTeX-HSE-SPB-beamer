@@ -1,0 +1,152 @@
+%!TEX TS-program = xelatex
+
+% Официальный шаблон презентации НИУ ВШЭ в beamer (LaTeX)
+% Версия 2.0
+% Язык — русский   
+% Автор шаблона - Данил Фёдоровых (fedorovykh@gmail.com)
+
+% Корректировки для Санкт-Петербурга и Ubuntu - Дмитрий Терещенко
+
+%%% Для корректной работы шаблона необходима 
+%%% установка в систему бесплатного шрифта HSE Sans
+%%% https://www.hse.ru/info/brandbook/#font
+
+
+\documentclass[aspectratio=169]{beamer}
+
+\newbool{russian}
+\booltrue{russian}  % Загружает русскоязычный логотип ВШЭ
+\usepackage{HSE-theme/beamerthemeHSE} % Подгружаем тему
+
+%%% Работа с русским языком и шрифтами
+\usepackage[english,russian]{babel}   % загружает пакет многоязыковой вёрстки
+\usepackage[no-math]{fontspec}      % подготавливает загрузку шрифтов Open Type, True Type и др.
+	\setsansfont{HSE Sans}
+	\setmonofont{Liberation Mono} % вместо Courier New
+\usepackage{mathspec}
+	\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{HSE Sans}
+	\setmathrm[Numbers={Lining,Proportional}]{HSE Sans}
+\uselanguage{russian}
+\languagepath{russian}
+\deftranslation[to=russian]{Theorem}{Теорема}
+\deftranslation[to=russian]{Definition}{Определение}
+\deftranslation[to=russian]{Definitions}{Определения}
+\deftranslation[to=russian]{Corollary}{Следствие}
+\deftranslation[to=russian]{Fact}{Факт}
+\deftranslation[to=russian]{Example}{Пример}
+\deftranslation[to=russian]{Examples}{Примеры}
+
+\usepackage{blindtext} 		% Случайный текст
+\graphicspath{{images/}}  	% Папка с картинками
+
+%%% Информация об авторе и выступлении
+\title[Заголовок]{Заголовок презентации (если длинный, то в две-три строки)} 
+\subtitle{Подзаголовок презентации}
+\author[Имя автора]{Имя автора \\ \smallskip \scriptsize author@hse.ru\\\url{http://hse.ru/staff/author/}}
+\institute{Название подразделения одну, две или три строки}
+\date{\today}
+
+\begin{document}	% Начало презентации
+
+\frame[plain]{\titlepage}	% Титульный слайд
+
+\begin{frame}
+\frametitle{Просто слайд с текстом}
+\framesubtitle{Подзаголовок слайда}
+	\blindtext
+\end{frame}
+
+\begin{frame}
+\frametitle{Список}
+\framesubtitle{Нумерованный список}
+	\begin{enumerate} 
+		\item Первый пункт:
+		\begin{itemize}
+			\item подпункт 1;
+			\item подпункт 2.
+		\end{itemize}
+		\item Второй пункт
+		\begin{enumerate}
+			\item нумерованный подпункт.
+		\end{enumerate} 
+		\item Третий пункт
+	\end{enumerate} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Список}
+\framesubtitle{Маркированный список}
+	\begin{itemize}
+		\item Первый пункт:
+		\begin{itemize}
+			\item подпункт 1;
+			\item подпункт 2.
+		\end{itemize}
+		\item Второй пункт
+		\begin{enumerate}
+			\item нумерованный подпункт.
+		\end{enumerate}
+		\item Третий пункт
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Слайд с двумя колонками текста}
+	 \begin{columns}
+	 \column{0.5\textwidth}
+		\begin{enumerate} 
+		\item Первый пункт:
+		\begin{itemize}
+			\item подпункт 1;
+			\item подпункт 2.
+		\end{itemize}
+		\item Второй пункт
+		\begin{enumerate}
+			\item нумерованный подпункт.
+		\end{enumerate} 
+		\item Третий пункт
+	\end{enumerate} 
+	\column{0.5\textwidth}
+	\begin{itemize}
+		\item Первый пункт:
+		\begin{itemize}
+			\item подпункт 1;
+			\item подпункт 2.
+		\end{itemize}
+		\item Второй пункт
+		\begin{enumerate}
+			\item нумерованный подпункт.
+		\end{enumerate}
+		\item Третий пункт
+	\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Слайд с картинкой}
+\medskip
+	 \begin{columns}
+	 \column{0.5\textwidth}
+		Текст рядом с картинкой
+		\column{0.5\textwidth}
+		\includegraphics[width=\columnwidth]{image1}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Блоки}
+	\begin{theorem}[Пифагора]
+		Если $a$ и $b$ "--- длины катетов прямоугольного треугольника, а~$c$ "--- длина гипотенузы, то $a^2+b^2=c^2$.
+	\end{theorem}
+
+	\begin{alertblock}{Блок с красным заголовком}
+		Содержимое.
+	\end{alertblock}
+
+	\begin{exampleblock}{Блок с зеленым заголовком}
+		Содержимое.
+	\end{exampleblock}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,144 @@
+%!TEX TS-program = xelatex
+
+% HSE Beamer Theme
+% by Danil Fedorovykh
+% http://hse.ru/staff/df
+%
+% Version 2.0 (English)
+% January 2022
+
+% With minor changes made by Dmitrii Tereshchenko
+
+%%% Set up the free HSE Sans font
+%%% https://www.hse.ru/info/brandbook/#font
+
+
+\documentclass[aspectratio=169]{beamer}
+
+\newbool{russian}
+%\booltrue{russian} % Uncomment if in Russian
+\usepackage{HSE-theme/beamerthemeHSE} % Load HSE theme
+
+\usepackage[no-math]{fontspec}      % fonts loading
+	\setsansfont{HSE Sans} 
+	\setmonofont{Liberation Mono} % replacing Courier New
+\usepackage{mathspec}
+	\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{HSE Sans}
+	\setmathrm[Numbers={Lining,Proportional}]{HSE Sans}
+
+\usepackage{blindtext} 		% Lorem ipsum
+\graphicspath{{images/}}  	% Images folder
+
+%%% Информация об авторе и выступлении
+\title[Title]{Presentation Title (may take 1 or 2 lines)} 
+\subtitle{Presentation Subtitle or Conference Title}
+\author[Author's name]{Author's name \\ \smallskip \scriptsize \url{author@hse.ru}\\\url{http://hse.ru/en/staff/author/}}
+\institute{Name of the Department}
+\date{\today}
+
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\begin{frame}
+\frametitle{Slide with text}
+\framesubtitle{Slide Subtitle}
+	\blindtext
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+\framesubtitle{Numbered list}
+	\begin{enumerate} 
+		\item First point
+		\begin{itemize}
+			\item subpoint 1
+			\item subpoint 2
+		\end{itemize}
+		\item Second point
+		\begin{enumerate}
+			\item numbered subpoint
+		\end{enumerate} 
+		\item Point three
+	\end{enumerate} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+\framesubtitle{Bullet points}
+	\begin{itemize}
+		\item First point
+		\begin{itemize}
+			\item subpoint 1
+			\item subpoint 2
+		\end{itemize}
+		\item Second point
+		\begin{enumerate}
+			\item numbered subpoint
+		\end{enumerate} 
+		\item Point three
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Two columns}
+	 \begin{columns}
+	 \column{0.5\textwidth}
+	\begin{enumerate} 
+		\item First point
+		\begin{itemize}
+			\item subpoint 1
+			\item subpoint 2
+		\end{itemize}
+		\item Second point
+		\begin{enumerate}
+			\item numbered subpoint
+		\end{enumerate} 
+		\item Point three
+	\end{enumerate} 
+	 \column{0.5\textwidth}
+	\begin{itemize}
+		\item First point
+		\begin{itemize}
+			\item subpoint 1
+			\item subpoint 2
+		\end{itemize}
+		\item Second point
+		\begin{enumerate}
+			\item numbered subpoint
+		\end{enumerate} 
+		\item Point three
+	\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Image and text}
+\medskip
+	 \begin{columns}
+	 \column{0.5\textwidth}
+		Text next to image
+		\column{0.5\textwidth}
+		\includegraphics[width=\columnwidth]{image1}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Blocks}
+	\begin{theorem}[Pythagoras]
+		If $c$ represents the length of the hypotenuse and $a$ and $b$ the lengths of the triangle's other two sides, then $a^2+b^2=c^2$.
+	\end{theorem}
+
+	\begin{alertblock}{Block with red title (alert)}
+		Alert text.
+	\end{alertblock}
+
+	\begin{exampleblock}{Block with green title (example)}
+		Example text.
+	\end{exampleblock}
+\end{frame}
+
+
+\end{document}
