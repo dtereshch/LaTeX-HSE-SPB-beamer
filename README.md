@@ -10,3 +10,7 @@
 Что еще понадобиться сделать для Ubuntu:
 - Скачать шрифт [HSE_Sans из брендбука](https://www.hse.ru/info/brandbook/#font) и поместить .otf файлы в /usr/share/fonts/opentype/HSE_Sans
 - Если не сделано, установить xetex: sudo apt install texlive-xetex
+
+Дополнительно: 
+- Добавлена строка `\usefonttheme[onlymath]{serif}` для установки другого шрифта в формулах
+
